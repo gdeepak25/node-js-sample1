@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: machine
+    name: machineos
     runs-on: ubuntu-latest
 
     steps:

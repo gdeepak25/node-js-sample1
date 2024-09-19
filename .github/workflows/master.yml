@@ -6,18 +6,24 @@ on:
       - master
 
 jobs:
-  build:
-    name: machineos
+  sonarQubeScan:
+    name: Run SonarQube Scan1
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
-      - name: SonarQube Scan
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x  
+        
+      - name: Install SonarQube Scanner
+        run: npm install -g sonar-scanner
+
+      - name: Run SonarQube Scanner
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
+          SONAR_URL: ${{ secrets.SONAR_URL }}

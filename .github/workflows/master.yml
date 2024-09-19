@@ -18,10 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20.x  
-        
-      - name: Install SonarQube Scanner
-        run: npm install -g sonar-scanner
-
+  
       - name: Run SonarQube Scanner
         uses: sonarsource/sonarqube-scan-action@master
         env:

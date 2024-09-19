@@ -7,7 +7,7 @@ on:
 
 jobs:
   sonarQubeScan:
-    name: Run SonarQube Scan1
+    name: Run SonarQube Scan
     runs-on: ubuntu-latest
 
     steps:
